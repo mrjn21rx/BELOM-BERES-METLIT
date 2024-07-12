@@ -174,7 +174,7 @@
             <div class="deskripsi">
                 Kambing
             </div>
-            <button class="play-button" onclick="playSuaraKambing('asset/music/anjing_indonesia.mp3')">
+            <button class="play-button" onclick="playSuaraKambing('asset/music/kambing.aac')">
                 <i class="fas fa-play"></i>
             </button>
             <div class="pronoun">
@@ -190,13 +190,13 @@
         <div class="column-container">
             <div class="judul">English</div>
             <div class="deskripsi">
-                Sheep
+                Goat
             </div>
-            <button class="play-button" onclick="playSuaraKambing('asset/music/anjing_inggris.mp3')">
+            <button class="play-button" onclick="playSuaraKambing('asset/music/kambingi.aac')">
                 <i class="fas fa-play"></i>
             </button>
             <div class="pronoun">
-                [Sheep]
+                [Goat]
             </div>
         </div>
         </div>
@@ -219,7 +219,7 @@
     </audio>
 
     <script>
-        function playSuaraAnjing(audioSrc) {
+        function playSuaraKambing(audioSrc) {
             const audio = document.getElementById('suaraKambing');
             audio.src = audioSrc;
             audio.play().catch(error => {

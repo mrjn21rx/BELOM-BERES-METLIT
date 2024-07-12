@@ -93,7 +93,7 @@
             height: auto;
         }
 
-        /* Gaya untuk tombol "Play Suara Anjing" */
+        /* Gaya untuk tombol "Play Suara Sapi" */
         .play-button {
             padding: 40px 40px;
             background-color: #b44c2f;
@@ -174,7 +174,7 @@
             <div class="deskripsi">
                 Sapi
             </div>
-            <button class="play-button" onclick="playSuaraSapi('asset/music/anjing_indonesia.mp3')">
+            <button class="play-button" onclick="playSuaraSapi('asset/music/sapi.aac')">
                 <i class="fas fa-play"></i>
             </button>
             <div class="pronoun">
@@ -192,11 +192,11 @@
             <div class="deskripsi">
                 Cow
             </div>
-            <button class="play-button" onclick="playSuaraSapi('asset/music/anjing_inggris.mp3')">
+            <button class="play-button" onclick="playSuaraSapi('asset/music/sapii.aac')">
                 <i class="fas fa-play"></i>
             </button>
             <div class="pronoun">
-                [Cow]
+                [kou]
             </div>
         </div>
         </div>
@@ -220,7 +220,7 @@
     </audio>
 
     <script>
-        function playSuaraAnjing(audioSrc) {
+        function playSuaraSapi(audioSrc) {
             const audio = document.getElementById('suaraSapi');
             audio.src = audioSrc;
             audio.play().catch(error => {
