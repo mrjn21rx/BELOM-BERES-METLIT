@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deskripsi Kucing</title>
+    <title>Deskripsi Kambing</title>
     <!-- Hubungkan fontawesome jika belum -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -88,7 +88,7 @@
             align-items: center;
         }
 
-        .anjing-image {
+        .kambing-image {
             width: 200px;
             height: auto;
         }
@@ -172,31 +172,31 @@
         <div class="column-container">
             <div class="judul">Indonesia</div>
             <div class="deskripsi">
-                Anjing
+                Kambing
             </div>
-            <button class="play-button" onclick="playSuaraAnjing('asset/music/anjing_indonesia.mp3')">
+            <button class="play-button" onclick="playSuaraKambing('asset/music/anjing_indonesia.mp3')">
                 <i class="fas fa-play"></i>
             </button>
             <div class="pronoun">
-                [Anjing]
+                [Kambing]
             </div>
         </div>
 
         <div class="column-container">
-            <!-- Gambar anjing -->
-            <img class="anjing-image" src="asset/gambar/Anjing.png" alt="Gambar Anjing">
+            <!-- Gambar kambing -->
+            <img class="kambing-image" src="asset/gambar/kambingg.png" alt="Gambar Kambing">
         </div>
 
         <div class="column-container">
             <div class="judul">English</div>
             <div class="deskripsi">
-                Dog
+                Sheep
             </div>
-            <button class="play-button" onclick="playSuaraAnjing('asset/music/anjing_inggris.mp3')">
+            <button class="play-button" onclick="playSuaraKambing('asset/music/anjing_inggris.mp3')">
                 <i class="fas fa-play"></i>
             </button>
             <div class="pronoun">
-                [dɒɡ]
+                [Sheep]
             </div>
         </div>
         </div>
@@ -207,39 +207,34 @@
             <!-- Tombol navigasi ke kanan sebagai gambar -->
             <img class="navigation-button" src="asset/gambar/homebutton.png" alt="Selanjutnya" onclick="goHome()">
 
-            <img class="navigation-button" src="asset/gambar/panah kanan.png" alt="Selanjutnya" onclick="goForward()">
         </div>
     </div>
     
     
 
     <!-- Elemen audio untuk memutar suara kucing -->
-    <audio id="suaraAnjing">
+    <audio id="suaraKambing">
         <source src="" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
         function playSuaraAnjing(audioSrc) {
-            const audio = document.getElementById('suaraAnjing');
+            const audio = document.getElementById('suaraKambing');
             audio.src = audioSrc;
             audio.play().catch(error => {
-                console.error('Gagal memainkan suara Anjing:', error);
+                console.error('Gagal memainkan suara Kambing:', error);
             });
         }
 
         function goBack() {
-            window.location.href = "anjing.html";
+            window.location.href = "kambing.html";
             
         }
 
         // Function untuk navigasi ke halaman sebelumnya
         function goHome() {
             window.location.href = "belajar.html"; 
-        }
-
-        function goForward() {
-            window.location.href = "sapi.html"; 
         }
     </script>
 </body>

@@ -88,7 +88,7 @@
             align-items: center;
         }
 
-        .anjing-image {
+        .beruang-image {
             width: 200px;
             height: auto;
         }
@@ -172,31 +172,31 @@
         <div class="column-container">
             <div class="judul">Indonesia</div>
             <div class="deskripsi">
-                Anjing
+                Beruang
             </div>
-            <button class="play-button" onclick="playSuaraAnjing('asset/music/anjing_indonesia.mp3')">
+            <button class="play-button" onclick="playSuaraBeruang('asset/music/anjing_indonesia.mp3')">
                 <i class="fas fa-play"></i>
             </button>
             <div class="pronoun">
-                [Anjing]
+                [Beruabg]
             </div>
         </div>
 
         <div class="column-container">
             <!-- Gambar anjing -->
-            <img class="anjing-image" src="asset/gambar/Anjing.png" alt="Gambar Anjing">
+            <img class="beruang-image" src="asset/gambar/beruangg.png" alt="Gambar Anjing">
         </div>
 
         <div class="column-container">
             <div class="judul">English</div>
             <div class="deskripsi">
-                Dog
+                Bear
             </div>
-            <button class="play-button" onclick="playSuaraAnjing('asset/music/anjing_inggris.mp3')">
+            <button class="play-button" onclick="playSuaraBeruang('asset/music/anjing_inggris.mp3')">
                 <i class="fas fa-play"></i>
             </button>
             <div class="pronoun">
-                [dɒɡ]
+                [Bear]
             </div>
         </div>
         </div>
@@ -214,22 +214,22 @@
     
 
     <!-- Elemen audio untuk memutar suara kucing -->
-    <audio id="suaraAnjing">
+    <audio id="suaraBeruang">
         <source src="" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        function playSuaraAnjing(audioSrc) {
-            const audio = document.getElementById('suaraAnjing');
+        function playSuaraBeruang(audioSrc) {
+            const audio = document.getElementById('suaraBeruang');
             audio.src = audioSrc;
             audio.play().catch(error => {
-                console.error('Gagal memainkan suara Anjing:', error);
+                console.error('Gagal memainkan suara Beruang:', error);
             });
         }
 
         function goBack() {
-            window.location.href = "anjing.html";
+            window.location.href = "beruang.html";
             
         }
 
@@ -239,7 +239,7 @@
         }
 
         function goForward() {
-            window.location.href = "sapi.html"; 
+            window.location.href = "kambing.html"; 
         }
     </script>
 </body>
