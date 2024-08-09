@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <div id="score">Score: 0</div>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -183,6 +184,11 @@
 
         #slide1 {
             display: block;
+        }
+
+        #score span:first-child {
+            font-size: 48px;
+            font-weight: bold;
         }
 
         @keyframes firework {
@@ -459,7 +465,7 @@
         </div>
     </div>
     
-    <div id="slide11" class="selesai-massage">
+    <div id="slide11" class="quiz-container">
         <h3>Selamat! Anda telah menyelesaikan kuis dengan baik! </h3>
     
         <div class="button">
@@ -476,6 +482,115 @@
 
     <!-- Custom JavaScript -->
     <script>
+        let score = 0; // initialize score to 0
+        let questions = [
+  {
+    id: 1,
+    question: "Apakah nama hewan dibawah ini?",
+    image: "asset/gambar/Kucing.png",
+    options: ["Kucing", "Anjing", "Harimau", "Kuda"],
+    correct: 0
+  },
+  {
+    id: 2,
+    question: "Hewan dibawah ini adalah hewan yang mempunyai kaki 4, <i>kecuali...</i>",
+    options: ["Kucing", "Ayam", "Harimau", "Kuda"],
+    correct: 1
+  },
+  {
+    id: 3,
+    question: "Hewan apakah yang bisa hidup didarat dan diair ?",
+    options: ["Kucing", "Ayam", "Harimau", "Katak"],
+    correct: 3
+  },
+  {
+    id: 4,
+    question: "Suara hewan apakah itu?",
+    audio: "asset/music/anjing.mp3",
+    options: ["Kucing", "Katak", "Anjing", "Kuda"],
+    correct: 2
+  },
+  {
+    id: 5,
+    question: "Hewan yang suka memakan daging adalah...",
+    options: ["Ayam", "Katak", "Kuda", "Harimau"],
+    correct: 3
+  },
+  {
+    id: 6,
+    question: "Apakah nama hewan dibawah ini?",
+    image: "asset/gambar/Kuda.png",
+    options: ["Kucing", "Anjing", "Harimau", "Kuda"],
+    correct: 3
+  },
+  {
+    id: 7,
+    question: "Bahasa inggrisnya dari kuda ?",
+    options: ["Cat", "Dog", "Horse", "Tiger"],
+    correct: 2
+  },
+  {
+    id: 8,
+    question: "Hewan apakah itu?",
+    audio: "asset/music/katak.mp3",
+    options: ["Kucing", "Katak", "Anjing", "Kuda"],
+    correct: 1
+  },
+  {
+    id: 9,
+    question: "Hewan apakah itu?",
+    audio: "asset/music/ayam.mp3",
+    options: ["Cat", "Frog", "Dog", "Chicken"],
+    correct: 3
+  },
+  {
+    id: 10,
+    question: "Tiger adalah...",
+    options: ["Kucing", "Ayam", "Harimau", "Katak"],
+    correct: 2
+  }
+];
+
+function shuffleQuestions() {
+  for (let i = questions.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = questions[i];
+    questions[i] = questions[j];
+    questions[j] = temp;
+  }
+}
+
+function displayQuestion() {
+  let currentQuestion = questions[0];
+  document.getElementById("question").innerHTML = currentQuestion.question;
+  document.getElementById("image").src = currentQuestion.image;
+  document.getElementById("options").innerHTML = "";
+  for (let i = 0; i < currentQuestion.options.length; i++) {
+    let option = document.createElement("button");
+    option.className = "answer-option";
+    option.innerHTML = currentQuestion.options[i];
+    option.onclick = function() {
+      checkAnswer(i === currentQuestion.correct);
+    };
+    document.getElementById("options").appendChild(option);
+  }
+}
+
+function checkAnswer(isCorrect) {
+  if (isCorrect) {
+    score++;
+  }
+  questions.shift();
+  if (questions.length > 0) {
+    displayQuestion();
+  } else {
+    document.getElementById("question").innerHTML = "Quiz selesai! Skor Anda: " + score + "/" + 10;
+  }
+}
+
+shuffleQuestions();
+displayQuestion();
+
         function playSuaraHewan() {
             new Audio('asset/music/anjing.mp3').play();
         }
@@ -487,6 +602,7 @@
         }
         function checkAnswer(isCorrect, nextSlide) {
             if (isCorrect) {
+                score += 10;
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
@@ -494,11 +610,16 @@
                     confirmButtonText: 'Lanjutkan',
                     allowOutsideClick: false
                 }).then(() => {
+                    document.getElementById('score').innerHTML = `Score: ${score}`;
                     goToNextSlide(nextSlide);
                 });
                 new Audio('asset/music/benarrr.mp3').play();
                 new Audio('asset/music/benarrr.aac').play();
             } else {
+                score -= 10; 
+                if (score < 0) {
+                score = 0; 
+                }       
                 Swal.fire({
                     icon: 'warning',
                     title: 'Yahh kurang tepat :(',
@@ -508,6 +629,7 @@
                 });
                 new Audio('asset/music/salahhh.mp3').play();
                 new Audio('asset/music/salahhh.aac').play();
+                document.getElementById('score').innerHTML = `Score: ${score}`;
             }
         }
 
@@ -515,6 +637,7 @@
             document.querySelectorAll('.quiz-container').forEach(slide => slide.style.display = 'none');
             document.querySelectorAll('.selesai-massage').forEach(slide => slide.style.display = 'none');
             document.getElementById(`slide${slideNumber}`).style.display = 'block';
+            document.getElementById('score').style.display = 'block';
         }
 
         function goBack() {
